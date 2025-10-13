@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои проекты</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+
+        /* Шапка */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .student-name {
+            font-size: 20px;
+            color: #34495e;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #7f8c8d;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #3498db;
+        }
+
+        /* Заголовок страницы */
+        .page-header {
+            padding: 30px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 28px;
+            color: #2c3e50;
+        }
+
+        /* Фильтры */
+        .filters {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #3498db;
+            background: white;
+            color: #3498db;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Сетка проектов */
+        .projects-grid {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #3498db;
+        }
+
+        .project-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            color: #7f8c8d;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Футер */
+        .footer {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .filters {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <header class="header">
+            <div class="logo">[ЛОГОТИП]</div>
+            <div class="student-name">Имя Студента</div>
+            <nav class="nav-menu">
+                <a href="#">[Главная]</a>
+                <a href="#" style="color: #3498db;">[Проекты]</a>
+                <a href="#">[Дневник]</a>
+                <a href="#">[Контакты]</a>
+            </nav>
+        </header>
+
+        <!-- Заголовок страницы -->
+        <div class="page-header">
+            <h1 class="page-title">Мои проекты</h1>
+            <div class="filters">
+                <button class="filter-btn active">[Все]</button>
+                <button class="filter-btn">[HTML]</button>
+                <button class="filter-btn">[JS]</button>
+                <button class="filter-btn">[React]</button>
+            </div>
+        </div>
+
+        <!-- Сетка проектов -->
+        <div class="projects-grid">
+            <!-- Проект 1 -->
+            <div class="project-card">
+                <div class="project-title">Личный сайт</div>
+                <div class="project-tech">HTML, CSS</div>
+            </div>
+
+            <!-- Проект 2 -->
+            <div class="project-card">
+                <div class="project-title">Todo-приложение</div>
+                <div class="project-tech">JavaScript</div>
+            </div>
+
+            <!-- Проект 3 -->
+            <div class="project-card">
+                <div class="project-title">Интернет-магазин</div>
+                <div class="project-tech">React</div>
+            </div>
+
+            <!-- Проект 4 -->
+            <div class="project-card">
+                <div class="project-title">Портфолио</div>
+                <div class="project-tech">Bootstrap</div>
+            </div>
+        </div>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div>© 2024</div>
+                <div>Контакты</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Добавляем функциональность фильтрам
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Убираем активный класс у всех кнопок
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Добавляем активный класс нажатой кнопке
+                    this.classList.add('active');
+                    
+                    // Здесь можно добавить логику фильтрации проектов
+                    const filter = this.textContent.toLowerCase();
+                    console.log('Фильтр:', filter);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
