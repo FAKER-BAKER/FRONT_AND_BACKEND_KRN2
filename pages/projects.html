@@ -1,273 +1,725 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <nav class="nav-menu">
-        <a href="index.html">[Главная]</a>
-        <a href="projects.html" style="color: #3498db;">[Проекты]</a>
-        <a href="diary.html">[Дневник]</a>
-        <a href="contacts.html">[Контакты]</a>
-    </nav>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои проекты</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
+:root {
+    --primary-color: #059669;       /* насыщенный изумрудный для акцентов (замена синего) */
+    --secondary-color: #047857;     /* более тёмный зелёный для hover и контраста */
+    --text-color: #1e293b;          /* глубокий серо-синий текст */
+    --text-light: #64748b;          /* светло-серый текст */
+    --bg-color: #f8fafc;            /* мягкий серо-белый фон */
+    --bg-light: #f1f5f9;            /* фон блоков */
+    --border-color: #d1d5db;        /* светлая граница */
+    --success-color: #10b981;       /* для успешных индикаторов */
+    --error-color: #ef4444;         /* красный для ошибок */
+    --shadow: 0 2px 5px rgba(4, 120, 87, 0.1);
+    --shadow-lg: 0 8px 16px rgba(4, 120, 87, 0.15);
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            min-height: 100vh;
-        }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
 
-        /* Шапка */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 2px solid #e0e0e0;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        .student-name {
-            font-size: 20px;
-            color: #34495e;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-        .nav-menu {
-            display: flex;
-            gap: 30px;
-        }
+/* ===== КНОПКИ ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
 
-        .nav-menu a {
-            text-decoration: none;
-            color: #7f8c8d;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+.btn:hover {
+    background-color: var(--secondary-color);
+}
 
-        .nav-menu a:hover {
-            color: #3498db;
-        }
+.btn-small {
+    padding: 8px 16px;
+    font-size: 14px;
+}
 
-        /* Заголовок страницы */
-        .page-header {
-            padding: 30px 20px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.btn-secondary {
+    background-color: var(--text-light);
+}
 
-        .page-title {
-            font-size: 28px;
-            color: #2c3e50;
-        }
+.btn-secondary:hover {
+    background-color: var(--text-color);
+}
 
-        /* Фильтры */
-        .filters {
-            display: flex;
-            gap: 15px;
-        }
+/* ===== HEADER ===== */
+header {
+    background-color: white;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-        .filter-btn {
-            padding: 8px 16px;
-            border: 2px solid #3498db;
-            background: white;
-            color: #3498db;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
 
-        .filter-btn:hover, .filter-btn.active {
-            background: #3498db;
-            color: white;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        /* Сетка проектов */
-        .projects-grid {
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
+.logo-img {
+    width: 40px;
+    height: 40px;
+}
 
-        .project-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            border: 2px solid #e9ecef;
-            transition: all 0.3s;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.logo h1 {
+    font-size: 24px;
+    color: var(--text-color);
+}
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-color: #3498db;
-        }
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
 
-        .project-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+nav a {
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 8px 0;
+}
 
-        .project-tech {
-            color: #7f8c8d;
-            font-size: 14px;
-            font-weight: 500;
-        }
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+}
 
-        /* Футер */
-        .footer {
-            background: #34495e;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--text-color);
+    color: white;
+    padding: 32px 0;
+    margin-top: 64px;
+}
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
+.footer-contacts {
+    display: flex;
+    gap: 24px;
+}
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+.footer-contacts a {
+    color: white;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
 
-            .page-header {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
+.footer-contacts a:hover {
+    opacity: 1;
+}
 
-            .filters {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+/* ===== HERO SECTION ===== */
+.hero {
+    padding: 64px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
 
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
 
-            .footer-content {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Шапка -->
-        <header class="header">
-            <div class="logo">[ЛОГОТИП]</div>
-            <div class="student-name">Имя Студента</div>
-        </header>
+.hero-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: var(--shadow-lg);
+}
 
-        <!-- Заголовок страницы -->
-        <div class="page-header">
-            <h1 class="page-title">Мои проекты</h1>
-            <div class="filters">
-                <button class="filter-btn active">[Все]</button>
-                <button class="filter-btn">[HTML]</button>
-                <button class="filter-btn">[JS]</button>
-                <button class="filter-btn">[React]</button>
-            </div>
-        </div>
+.hero-text h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+}
 
-        <!-- Сетка проектов -->
-        <div class="projects-grid">
-            <!-- Проект 1 -->
-            <div class="project-card">
-                <div class="project-title">Личный сайт</div>
-                <div class="project-tech">HTML, CSS</div>
-            </div>
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 12px;
+    opacity: 0.95;
+}
 
-            <!-- Проект 2 -->
-            <div class="project-card">
-                <div class="project-title">Todo-приложение</div>
-                <div class="project-tech">JavaScript</div>
-            </div>
+.hero-text .btn {
+    margin-top: 24px;
+    background-color: white;
+    color: var(--primary-color);
+}
 
-            <!-- Проект 3 -->
-            <div class="project-card">
-                <div class="project-title">Интернет-магазин</div>
-                <div class="project-tech">React</div>
-            </div>
+.hero-text .btn:hover {
+    background-color: var(--bg-light);
+}
 
-            <!-- Проект 4 -->
-            <div class="project-card">
-                <div class="project-title">Портфолио</div>
-                <div class="project-tech">Bootstrap</div>
-            </div>
-        </div>
+/* ===== SKILLS SECTION ===== */
+.skills {
+    padding: 64px 0;
+    background-color: var(--bg-light);
+}
 
-        <!-- Футер -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div>© 2024</div>
-                <div>Контакты</div>
-            </div>
-        </footer>
-    </div>
+.skills h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 48px;
+}
 
-    <script>
-        // Добавляем функциональность фильтрам
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Убираем активный класс у всех кнопок
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    // Добавляем активный класс нажатой кнопке
-                    this.classList.add('active');
-                    
-                    // Здесь можно добавить логику фильтрации проектов
-                    const filter = this.textContent.toLowerCase();
-                    console.log('Фильтр:', filter);
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+.skills-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    margin-bottom: 32px;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.skill-percent {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.progress-bar {
+    height: 12px;
+    background-color: var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 6px;
+    transition: width 1s ease;
+}
+
+/* ===== PROJECTS SECTION ===== */
+.projects-preview,
+.projects-page {
+    padding: 64px 0;
+}
+
+.projects-preview h2,
+.projects-page h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 48px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    margin: 16px 20px 8px;
+    color: var(--text-color);
+}
+
+.project-card p {
+    margin: 0 20px 16px;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 20px;
+}
+
+.tag {
+    padding: 4px 12px;
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* ===== FILTER BUTTONS ===== */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background-color: var(--bg-light);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* ===== DIARY PAGE ===== */
+.diary-page {
+    padding: 64px 0;
+}
+
+.diary-page h2 {
+    font-size: 36px;
+    margin-bottom: 48px;
+}
+
+.diary-entries {
+    margin-bottom: 64px;
+}
+
+.diary-entry {
+    background-color: white;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+
+.diary-entry.completed {
+    border-left-color: var(--success-color);
+}
+
+.diary-entry.in-progress {
+    border-left-color: #f59e0b;
+}
+
+.entry-date {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.entry-content h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.entry-content p {
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.entry-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* ===== COURSES PROGRESS ===== */
+.courses-progress {
+    background-color: var(--bg-light);
+    padding: 48px;
+    border-radius: 12px;
+    margin-bottom: 64px;
+}
+
+.courses-progress h2 {
+    font-size: 28px;
+    margin-bottom: 32px;
+}
+
+.course-item {
+    margin-bottom: 32px;
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.course-name {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.course-percent {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.course-description {
+    margin-top: 8px;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* ===== FORMS ===== */
+.add-entry-section,
+.contact-form-section {
+    background-color: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.add-entry-section h3,
+.contact-form-section h3 {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.diary-form,
+.contact-form {
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.error-message {
+    display: block;
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.success-message {
+    color: var(--success-color);
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+/* ===== CONTACTS PAGE ===== */
+.contacts-page {
+    padding: 64px 0;
+}
+
+.contacts-page h2 {
+    font-size: 36px;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.contacts-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+}
+
+.contact-info-section {
+    background-color: var(--bg-light);
+    padding: 32px;
+    border-radius: 12px;
+}
+
+.contact-info-section h3 {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.contact-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: var(--text-color);
+}
+
+.contact-details p,
+.contact-details a {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.contact-details a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    padding: 6px 14px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.availability {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 2px solid var(--border-color);
+}
+
+.availability h4 {
+    margin-bottom: 8px;
+}
+
+.availability p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.map-section {
+    text-align: center;
+}
+
+.map-section h3 {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.map-placeholder {
+    background-color: var(--bg-light);
+    padding: 64px 32px;
+    border-radius: 12px;
+    border: 2px dashed var(--border-color);
+}
+
+.map-placeholder p {
+    color: var(--text-light);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 32px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.close:hover {
+    color: var(--text-color);
+}
+
+.modal-content h3 {
+    margin-bottom: 16px;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.modal-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    nav ul {
+        gap: 16px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        font-size: 32px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .filter-buttons {
+        flex-wrap: wrap;
+    }
+
+    .contacts-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    footer .container {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}

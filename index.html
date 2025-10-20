@@ -1,316 +1,133 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <nav class="nav-menu">
-        <a href="index.html" style="color: #3498db;">[Главная]</a>
-        <a href="projects.html">[Проекты]</a>
-        <a href="diary.html">[Дневник]</a>
-        <a href="contacts.html">[Контакты]</a>
-    </nav>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио студента</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        /* Шапка */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .student-name {
-            font-size: 20px;
-            color: #34495e;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #7f8c8d;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #3498db;
-        }
-
-        /* Основной контент */
-        .main-content {
-            padding: 40px 20px;
-        }
-
-        .hero-section {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            margin-bottom: 50px;
-        }
-
-        .photo-placeholder {
-            width: 200px;
-            height: 200px;
-            background: #bdc3c7;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-
-        .intro-text {
-            flex: 1;
-        }
-
-        .intro-text h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .intro-text p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        .download-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-
-        .download-btn:hover {
-            background: #2980b9;
-        }
-
-        /* Навыки */
-        .skills-section {
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: #2c3e50;
-            text-align: center;
-        }
-
-        .skill-item {
-            margin-bottom: 20px;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .skill-bar {
-            height: 10px;
-            background: #ecf0f1;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .skill-level {
-            height: 100%;
-            background: #3498db;
-            border-radius: 5px;
-        }
-
-        /* Проекты */
-        .projects-section {
-            margin-bottom: 50px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .project-card {
-            height: 200px;
-            background: #ecf0f1;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #7f8c8d;
-            font-weight: 500;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Футер */
-        .footer {
-            background: #34495e;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-menu {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Шапка -->
-        <header class="header">
-            <div class="logo">[ЛОГОТИП]</div>
-            <div class="student-name">Имя Студента</div>
-            <nav class="nav-menu">
-                <a href="index.html" style="color: #3498db;">[Главная]</a>
-                <a href="pages/projects.html">[Проекты]</a>
-                <a href="pages/diary.html">[Дневник]</a>
-                <a href="pages/contacts.html">[Контакты]</a>
-            </nav>
-        </header>
-
-        <!-- Основной контент -->
-        <main class="main-content">
-            <!-- Герой секция -->
-            <section class="hero-section">
-                <div class="photo-placeholder">
-                    [ФОТО]
-                </div>
-                <div class="intro-text">
-                    <h2>Привет! Я студент</h2>
-                    <p>Факультет ИТ, группа ХХ</p>
-                    <p>Увлекаюсь веб-разработкой</p>
-                    <a href="#" class="download-btn">[Скачать резюме]</a>
-                </div>
-            </section>
-
-            <!-- Навыки -->
-            <section class="skills-section">
-                <h2 class="section-title">Мои навыки</h2>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>HTML/CSS</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>JavaScript</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Bootstrap</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 85%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>React</span>
-                        <span>60%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 60%;"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Проекты -->
-            <section class="projects-section">
-                <h2 class="section-title">Лучшие проекты</h2>
-                <div class="projects-grid">
-                    <div class="project-card">П1</div>
-                    <div class="project-card">П2</div>
-                    <div class="project-card">П3</div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Футер -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div>© 2024</div>
-                <div>Контакты</div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/icons/icons8-github-50.png" alt="Логотип" class="logo-img">
+                <h1>Иван Лебедев</h1>
             </div>
-        </footer>
-    </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="pages/projects.html">Проекты</a></li>
+                    <li><a href="pages/diary.html">Дневник</a></li>
+                    <li><a href="pages/contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-image">
+                        <img src="images/milyi-kot-v-studii.jpg" alt="Фото студента">
+                    </div>
+                    <div class="hero-text">
+                        <h2>Привет! Я студент</h2>
+                        <p>Фуллстек разработчик , группа ЭФБО-11-24
+                        </p>
+                        <p>Увлекаюсь веб-разработкой и создаю современные интерактивные приложения</p>
+                        <a href="assets/resume.pdf" class="btn" download>Скачать резюме</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="container">
+                <h2>Мои навыки</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Bootstrap</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">React</span>
+                            <span class="skill-percent">60%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-preview">
+            <div class="container">
+                <h2>Лучшие проекты</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="images/golubaa-ptica-3d-illustracia.jpg" alt="Личный сайт">
+                        <h3>Личный сайт</h3>
+                        <p>Многостраничный веб-сайт с адаптивным дизайном</p>
+                        <div class="tech-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="images/vid-na-trehmernuu-mul-tasnuu-pticu.jpg" alt="Todo-приложение">
+                        <h3>Todo-приложение</h3>
+                        <p>Интерактивное приложение для управления задачами</p>
+                        <div class="tech-tags">
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="images/vid-na-trehmernuu-pticu-aviatora.jpg" alt="Интернет-магазин">
+                        <h3>Интернет-магазин</h3>
+                        <p>Полнофункциональный магазин с корзиной покупок</p>
+                        <div class="tech-tags">
+                            <span class="tag">React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Иван Лебедев. Все права защищены.</p>
+            <div class="footer-contacts">
+                <a href="mailto:student@edu.ru">student@edu.ru</a>
+                <a href="https://github.com/username" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
