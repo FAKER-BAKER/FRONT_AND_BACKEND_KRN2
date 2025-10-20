@@ -1,725 +1,141 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: #059669;       /* насыщенный изумрудный для акцентов (замена синего) */
-    --secondary-color: #047857;     /* более тёмный зелёный для hover и контраста */
-    --text-color: #1e293b;          /* глубокий серо-синий текст */
-    --text-light: #64748b;          /* светло-серый текст */
-    --bg-color: #f8fafc;            /* мягкий серо-белый фон */
-    --bg-light: #f1f5f9;            /* фон блоков */
-    --border-color: #d1d5db;        /* светлая граница */
-    --success-color: #10b981;       /* для успешных индикаторов */
-    --error-color: #ef4444;         /* красный для ошибок */
-    --shadow: 0 2px 5px rgba(4, 120, 87, 0.1);
-    --shadow-lg: 0 8px 16px rgba(4, 120, 87, 0.15);
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ===== КНОПКИ ===== */
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--secondary-color);
-}
-
-.btn-small {
-    padding: 8px 16px;
-    font-size: 14px;
-}
-
-.btn-secondary {
-    background-color: var(--text-light);
-}
-
-.btn-secondary:hover {
-    background-color: var(--text-color);
-}
-
-/* ===== HEADER ===== */
-header {
-    background-color: white;
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-img {
-    width: 40px;
-    height: 40px;
-}
-
-.logo h1 {
-    font-size: 24px;
-    color: var(--text-color);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-}
-
-nav a {
-    color: var(--text-light);
-    font-weight: 500;
-    transition: color 0.3s ease;
-    padding: 8px 0;
-}
-
-nav a:hover,
-nav a.active {
-    color: var(--primary-color);
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background-color: var(--text-color);
-    color: white;
-    padding: 32px 0;
-    margin-top: 64px;
-}
-
-footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-contacts {
-    display: flex;
-    gap: 24px;
-}
-
-.footer-contacts a {
-    color: white;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.footer-contacts a:hover {
-    opacity: 1;
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-    padding: 64px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    gap: 48px;
-}
-
-.hero-image img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid white;
-    box-shadow: var(--shadow-lg);
-}
-
-.hero-text h2 {
-    font-size: 42px;
-    margin-bottom: 16px;
-}
-
-.hero-text p {
-    font-size: 18px;
-    margin-bottom: 12px;
-    opacity: 0.95;
-}
-
-.hero-text .btn {
-    margin-top: 24px;
-    background-color: white;
-    color: var(--primary-color);
-}
-
-.hero-text .btn:hover {
-    background-color: var(--bg-light);
-}
-
-/* ===== SKILLS SECTION ===== */
-.skills {
-    padding: 64px 0;
-    background-color: var(--bg-light);
-}
-
-.skills h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 48px;
-}
-
-.skills-list {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.skill-item {
-    margin-bottom: 32px;
-}
-
-.skill-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
-
-.skill-name {
-    font-weight: 600;
-    color: var(--text-color);
-}
-
-.skill-percent {
-    font-weight: 500;
-    color: var(--primary-color);
-}
-
-.progress-bar {
-    height: 12px;
-    background-color: var(--border-color);
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: 6px;
-    transition: width 1s ease;
-}
-
-/* ===== PROJECTS SECTION ===== */
-.projects-preview,
-.projects-page {
-    padding: 64px 0;
-}
-
-.projects-preview h2,
-.projects-page h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 48px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-}
-
-.project-card {
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-card h3 {
-    margin: 16px 20px 8px;
-    color: var(--text-color);
-}
-
-.project-card p {
-    margin: 0 20px 16px;
-    color: var(--text-light);
-    font-size: 14px;
-}
-
-.project-content {
-    padding: 20px;
-}
-
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 16px 20px;
-}
-
-.tag {
-    padding: 4px 12px;
-    background-color: var(--bg-light);
-    color: var(--primary-color);
-    border-radius: 16px;
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.project-links {
-    display: flex;
-    gap: 12px;
-    margin-top: 16px;
-}
-
-/* ===== FILTER BUTTONS ===== */
-.page-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 48px;
-}
-
-.filter-buttons {
-    display: flex;
-    gap: 12px;
-}
-
-.filter-btn {
-    padding: 8px 20px;
-    background-color: var(--bg-light);
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-color);
-    transition: all 0.3s ease;
-}
-
-.filter-btn:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-}
-
-.filter-btn.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: white;
-}
-
-/* ===== DIARY PAGE ===== */
-.diary-page {
-    padding: 64px 0;
-}
-
-.diary-page h2 {
-    font-size: 36px;
-    margin-bottom: 48px;
-}
-
-.diary-entries {
-    margin-bottom: 64px;
-}
-
-.diary-entry {
-    background-color: white;
-    border-left: 4px solid var(--primary-color);
-    border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow);
-}
-
-.diary-entry.completed {
-    border-left-color: var(--success-color);
-}
-
-.diary-entry.in-progress {
-    border-left-color: #f59e0b;
-}
-
-.entry-date {
-    font-size: 14px;
-    color: var(--text-light);
-    margin-bottom: 8px;
-}
-
-.entry-content h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-    color: var(--text-color);
-}
-
-.entry-content p {
-    color: var(--text-light);
-    margin-bottom: 16px;
-}
-
-.entry-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-/* ===== COURSES PROGRESS ===== */
-.courses-progress {
-    background-color: var(--bg-light);
-    padding: 48px;
-    border-radius: 12px;
-    margin-bottom: 64px;
-}
-
-.courses-progress h2 {
-    font-size: 28px;
-    margin-bottom: 32px;
-}
-
-.course-item {
-    margin-bottom: 32px;
-}
-
-.course-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
-
-.course-name {
-    font-weight: 600;
-    color: var(--text-color);
-    font-size: 18px;
-}
-
-.course-percent {
-    font-weight: 500;
-    color: var(--primary-color);
-}
-
-.course-description {
-    margin-top: 8px;
-    color: var(--text-light);
-    font-size: 14px;
-}
-
-/* ===== FORMS ===== */
-.add-entry-section,
-.contact-form-section {
-    background-color: white;
-    padding: 32px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-}
-
-.add-entry-section h3,
-.contact-form-section h3 {
-    font-size: 24px;
-    margin-bottom: 24px;
-}
-
-.diary-form,
-.contact-form {
-    max-width: 600px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid var(--border-color);
-    border-radius: 6px;
-    font-size: 16px;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.error-message {
-    display: block;
-    color: var(--error-color);
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.success-message {
-    color: var(--success-color);
-    font-size: 14px;
-    margin-top: 12px;
-}
-
-/* ===== CONTACTS PAGE ===== */
-.contacts-page {
-    padding: 64px 0;
-}
-
-.contacts-page h2 {
-    font-size: 36px;
-    margin-bottom: 48px;
-    text-align: center;
-}
-
-.contacts-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 64px;
-}
-
-.contact-info-section {
-    background-color: var(--bg-light);
-    padding: 32px;
-    border-radius: 12px;
-}
-
-.contact-info-section h3 {
-    font-size: 24px;
-    margin-bottom: 24px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
-}
-
-.contact-icon {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-}
-
-.contact-details h4 {
-    font-size: 16px;
-    margin-bottom: 4px;
-    color: var(--text-color);
-}
-
-.contact-details p,
-.contact-details a {
-    color: var(--text-light);
-    font-size: 14px;
-}
-
-.contact-details a:hover {
-    color: var(--primary-color);
-}
-
-.social-links {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.social-link {
-    padding: 6px 14px;
-    background-color: white;
-    border-radius: 20px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.social-link:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.availability {
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 2px solid var(--border-color);
-}
-
-.availability h4 {
-    margin-bottom: 8px;
-}
-
-.availability p {
-    color: var(--text-light);
-    font-size: 14px;
-}
-
-.map-section {
-    text-align: center;
-}
-
-.map-section h3 {
-    font-size: 24px;
-    margin-bottom: 24px;
-}
-
-.map-placeholder {
-    background-color: var(--bg-light);
-    padding: 64px 32px;
-    border-radius: 12px;
-    border: 2px dashed var(--border-color);
-}
-
-.map-placeholder p {
-    color: var(--text-light);
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-/* ===== MODAL ===== */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: white;
-    margin: 5% auto;
-    padding: 32px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 600px;
-    position: relative;
-}
-
-.close {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--text-light);
-}
-
-.close:hover {
-    color: var(--text-color);
-}
-
-.modal-content h3 {
-    margin-bottom: 16px;
-}
-
-.modal-content img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 16px;
-}
-
-.modal-links {
-    display: flex;
-    gap: 12px;
-    margin-top: 24px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    nav ul {
-        gap: 16px;
-    }
-
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-text h2 {
-        font-size: 32px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .page-header {
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .filter-buttons {
-        flex-wrap: wrap;
-    }
-
-    .contacts-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    footer .container {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-    }
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты - Портфолио студента</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../images/icons/icons8-github-50.png" alt="Логотип" class="logo-img">
+                <h1>Иван Лебедев</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="projects.html" class="active">Проекты</a></li>
+                    <li><a href="diary.html">Дневник</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects-page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Мои проекты</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="html">HTML/CSS</button>
+                        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                        <button class="filter-btn" data-filter="react">React</button>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card" data-category="html">
+                        <img src="../images/i.jpeg" alt="Личный сайт">
+                        <div class="project-content">
+                            <h3>Личный сайт</h3>
+                            <p>Многостраничный адаптивный веб-сайт с использованием семантической разметки HTML5 и современных методов CSS3</p>
+                            <div class="tech-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">Flexbox</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Демо</a>
+                                <a href="#" class="btn btn-small btn-secondary">Код</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="javascript">
+                        <img src="../images/vid-na-trehmernuu-pticu-aviatora.jpg" alt="Todo-приложение">
+                        <div class="project-content">
+                            <h3>Todo-приложение</h3>
+                            <p>Интерактивное приложение для управления задачами с возможностью добавления, редактирования и удаления</p>
+                            <div class="tech-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">LocalStorage</span>
+                                <span class="tag">DOM API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Демо</a>
+                                <a href="#" class="btn btn-small btn-secondary">Код</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="react">
+                        <img src="../images/golubaa-ptica-3d-illustracia.jpg" alt="Интернет-магазин">
+                        <div class="project-content">
+                            <h3>Интернет-магазин</h3>
+                            <p>Полнофункциональное приложение электронной коммерции с корзиной покупок, фильтрацией товаров и оформлением заказа</p>
+                            <div class="tech-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">React Hooks</span>
+                                <span class="tag">Context API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Демо</a>
+                                <a href="#" class="btn btn-small btn-secondary">Код</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="html">
+                        <img src="../images/vid-na-trehmernuu-mul-tasnuu-pticu.jpg" alt="Портфолио">
+                        <div class="project-content">
+                            <h3>Портфолио Bootstrap</h3>
+                            <p>Современное портфолио с использованием Bootstrap Framework для быстрой и адаптивной верстки</p>
+                            <div class="tech-tags">
+                                <span class="tag">Bootstrap</span>
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Демо</a>
+                                <a href="#" class="btn btn-small btn-secondary">Код</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Иван Лебедев. Все права защищены.</p>
+            <div class="footer-contacts">
+                <a href="mailto:student@edu.ru">student@edu.ru</a>
+                <a href="https://github.com/username" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Название проекта</h3>
+            <img id="modalImage" src="" alt="Проект">
+            <p id="modalDescription">Описание проекта</p>
+            <div id="modalTech" class="tech-tags"></div>
+            <div class="modal-links">
+                <a id="modalDemo" href="#" class="btn">Демо</a>
+                <a id="modalCode" href="#" class="btn btn-secondary">Исходный код</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/filters.js"></script>
+    <script src="../scripts/modal.js"></script>
+</body>
+</html>
