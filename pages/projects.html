@@ -149,20 +149,17 @@
     </div>
 
     <script>
-        // Скрипт для модального окна
         document.addEventListener('DOMContentLoaded', function() {
             const modal = document.getElementById('projectModal');
             const demoButtons = document.querySelectorAll('.demo-btn');
             const closeBtn = document.querySelector('.close');
             
-            // Функция открытия модального окна
             function openModal(projectData) {
                 document.getElementById('modalTitle').textContent = projectData.title;
                 document.getElementById('modalImage').src = projectData.image;
                 document.getElementById('modalImage').alt = `Демонстрация проекта: ${projectData.title}`;
                 document.getElementById('modalDescription').textContent = projectData.description;
                 
-                // Очищаем и добавляем технологии
                 const techContainer = document.getElementById('modalTech');
                 techContainer.innerHTML = '';
                 projectData.tech.split(',').forEach(tech => {
@@ -172,16 +169,13 @@
                     techContainer.appendChild(tag);
                 });
                 
-                // Устанавливаем ссылки
                 document.getElementById('modalDemo').href = projectData.demo;
                 document.getElementById('modalCode').href = projectData.code;
                 
-                // Показываем модальное окно
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             }
             
-            // Обработчики для кнопок демо
             demoButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const projectData = {
@@ -196,21 +190,17 @@
                 });
             });
             
-            // Закрытие модального окна
             closeBtn.addEventListener('click', function() {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             });
             
-            // Закрытие при клике вне окна
             window.addEventListener('click', function(event) {
                 if (event.target === modal) {
                     modal.style.display = 'none';
                     document.body.style.overflow = 'auto';
                 }
             });
-            
-            // Закрытие по клавише Escape
             document.addEventListener('keydown', function(event) {
                 if (event.key === 'Escape' && modal.style.display === 'block') {
                     modal.style.display = 'none';
