@@ -10,15 +10,15 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="../images/icon/logo.jpg" alt="Логотип" class="logo-img" style="width: 100px; height: 100px;">
-                <h1></h1>
+                <img src="../images/icon/logo.jpg" alt="Логотип портфолио" class="logo-img" style="width: 100px; height: 100px;">
+                <h1>Портфолио студента</h1>
             </div>
-            <nav>
+            <nav aria-label="Основная навигация">
                 <ul>
-                    <li><a href="../index.html">Главная</a></li>
-                    <li><a href="projects.html" class="active">Проекты</a></li>
-                    <li><a href="diary.html">Дневник</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="../index.html" class="nav-link">Главная</a></li>
+                    <li><a href="projects.html" class="nav-link active" aria-current="page">Проекты</a></li>
+                    <li><a href="diary.html" class="nav-link">Дневник</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
                 </ul>
             </nav>
         </div>
@@ -39,7 +39,7 @@
 
                 <div class="projects-grid">
                     <div class="project-card" data-category="html">
-                        <img src="../images/KalLuga.jpg" alt="Личный сайт">
+                        <img src="../images/KalLuga.jpg" alt="Скриншот личного сайта">
                         <div class="project-content">
                             <h3>Личный сайт</h3>
                             <p>Многостраничный адаптивный веб-сайт с использованием семантической разметки HTML5 и современных методов CSS3</p>
@@ -49,15 +49,22 @@
                                 <span class="tag">Flexbox</span>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="btn btn-small">Демо</a>
+                                <button class="btn btn-small demo-btn" 
+                                        data-title="Личный сайт"
+                                        data-image="../images/KalLuga.jpg"
+                                        data-description="Многостраничный адаптивный веб-сайт с использованием семантической разметки HTML5 и современных методов CSS3. Проект включает главную страницу, портфолио работ, блог и контакты. Реализована полностью адаптивная верстка для всех устройств."
+                                        data-tech="HTML,CSS,Flexbox,Grid"
+                                        data-demo="https://demo-personal-site.example.com"
+                                        data-code="https://github.com/username/personal-site">
+                                    Демо
+                                </button>
                                 <a href="#" class="btn btn-small btn-secondary">Код</a>
                             </div>
                         </div>
                     </div>
 
-
                     <div class="project-card" data-category="react">
-                        <img src="../images/maksim_best.jpg" alt="Интернет-магазин">
+                        <img src="../images/maksim_best.jpg" alt="Скриншот интернет-магазина">
                         <div class="project-content">
                             <h3>Интернет-магазин</h3>
                             <p>Полнофункциональное приложение электронной коммерции с корзиной покупок, фильтрацией товаров и оформлением заказа</p>
@@ -67,13 +74,22 @@
                                 <span class="tag">Context API</span>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="btn btn-small">Демо</a>
+                                <button class="btn btn-small demo-btn"
+                                        data-title="Интернет-магазин"
+                                        data-image="../images/maksim_best.jpg"
+                                        data-description="Полнофункциональное приложение электронной коммерции с системой корзины покупок, фильтрацией товаров по категориям и цене, оформлением заказа и интеграцией с платежной системой. Реализована административная панель для управления товарами."
+                                        data-tech="React,React Hooks,Context API,Node.js"
+                                        data-demo="https://demo-ecommerce.example.com"
+                                        data-code="https://github.com/username/ecommerce-app">
+                                    Демо
+                                </button>
                                 <a href="#" class="btn btn-small btn-secondary">Код</a>
                             </div>
                         </div>
                     </div>
+
                     <div class="project-card" data-category="html">
-                        <img src="../images/boy.jpg" alt="Портфолио">
+                        <img src="../images/boy.jpg" alt="Скриншот портфолио на Bootstrap">
                         <div class="project-content">
                             <h3>Портфолио Bootstrap</h3>
                             <p>Современное портфолио с использованием Bootstrap Framework для быстрой и адаптивной верстки</p>
@@ -83,7 +99,15 @@
                                 <span class="tag">CSS</span>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="btn btn-small">Демо</a>
+                                <button class="btn btn-small demo-btn"
+                                        data-title="Портфолио Bootstrap"
+                                        data-image="../images/boy.jpg"
+                                        data-description="Современное портфолио разработанное с использованием Bootstrap 5. Включает адаптивную сетку, карусель проектов, модальные окна и анимированные переходы. Оптимизировано для быстрой загрузки и SEO."
+                                        data-tech="Bootstrap 5,HTML,CSS,JavaScript"
+                                        data-demo="https://demo-bootstrap-portfolio.example.com"
+                                        data-code="https://github.com/username/bootstrap-portfolio">
+                                    Демо
+                                </button>
                                 <a href="#" class="btn btn-small btn-secondary">Код</a>
                             </div>
                         </div>
@@ -95,30 +119,107 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 . Все права защищены.</p>
+            <p>&copy; 2025 Портфолио студента. Все права защищены.</p>
             <div class="footer-contacts">
-                <a href="mailto:student@edu.ru">volkov.a.10@edu.ru</a>
+                <a href="mailto:volkov.a.10@edu.ru">volkov.a.10@edu.ru</a>
                 <a href="https://github.com/username" target="_blank">GitHub</a>
             </div>
         </div>
     </footer>
 
-    
+    <!-- Модальное окно для демо проектов -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" aria-label="Закрыть окно">&times;</span>
             <h3 id="modalTitle">Название проекта</h3>
-            <img id="modalImage" src="" alt="Проект">
-            <p id="modalDescription">Описание проекта</p>
-            <div id="modalTech" class="tech-tags"></div>
+            <img id="modalImage" src="" alt="Демонстрация проекта">
+            <div class="modal-description">
+                <h4>О проекте</h4>
+                <p id="modalDescription">Описание проекта</p>
+            </div>
+            <div class="modal-tech">
+                <h4>Технологии</h4>
+                <div id="modalTech" class="tech-tags"></div>
+            </div>
             <div class="modal-links">
-                <a id="modalDemo" href="#" class="btn">Демо</a>
-                <a id="modalCode" href="#" class="btn btn-secondary">Исходный код</a>
+                <a id="modalDemo" href="#" class="btn" target="_blank">Открыть демо</a>
+                <a id="modalCode" href="#" class="btn btn-secondary" target="_blank">Исходный код</a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Скрипт для модального окна
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('projectModal');
+            const demoButtons = document.querySelectorAll('.demo-btn');
+            const closeBtn = document.querySelector('.close');
+            
+            // Функция открытия модального окна
+            function openModal(projectData) {
+                document.getElementById('modalTitle').textContent = projectData.title;
+                document.getElementById('modalImage').src = projectData.image;
+                document.getElementById('modalImage').alt = `Демонстрация проекта: ${projectData.title}`;
+                document.getElementById('modalDescription').textContent = projectData.description;
+                
+                // Очищаем и добавляем технологии
+                const techContainer = document.getElementById('modalTech');
+                techContainer.innerHTML = '';
+                projectData.tech.split(',').forEach(tech => {
+                    const tag = document.createElement('span');
+                    tag.className = 'tag';
+                    tag.textContent = tech.trim();
+                    techContainer.appendChild(tag);
+                });
+                
+                // Устанавливаем ссылки
+                document.getElementById('modalDemo').href = projectData.demo;
+                document.getElementById('modalCode').href = projectData.code;
+                
+                // Показываем модальное окно
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Обработчики для кнопок демо
+            demoButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const projectData = {
+                        title: this.getAttribute('data-title'),
+                        image: this.getAttribute('data-image'),
+                        description: this.getAttribute('data-description'),
+                        tech: this.getAttribute('data-tech'),
+                        demo: this.getAttribute('data-demo'),
+                        code: this.getAttribute('data-code')
+                    };
+                    openModal(projectData);
+                });
+            });
+            
+            // Закрытие модального окна
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Закрытие при клике вне окна
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Закрытие по клавише Escape
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+    
     <script src="../scripts/filters.js"></script>
-    <script src="../scripts/modal.js"></script>
 </body>
 </html>
